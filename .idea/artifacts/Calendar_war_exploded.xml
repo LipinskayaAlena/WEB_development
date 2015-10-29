@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Calendar:war exploded">
+    <output-path>$PROJECT_DIR$/target/Calendar</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Calendar" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/Calendar/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="Calendar/web/Web" />
+    </root>
+  </artifact>
+</component>
