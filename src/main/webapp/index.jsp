@@ -5,13 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
 
     <link href="style.css" rel="stylesheet"/>
-<link href="menuStyle.css" rel="stylesheet"/>
-    <link rel="apple-touch-icon" href="sign.png" />
+    <link href="menuStyle.css" rel="stylesheet"/>
     <link rel="shortcut icon" href="sign.png" type="image/x-icon"/>
     <link rel="icon" href="sign.png" type="image/x-icon" />
+
 </head>
 
-<body background="calendar2.jpg" style="background-size: 150%">
+<body background="calendarForStart.jpg" style="background-size: 110%">
 <table>
     <tr>
         <td>
@@ -25,9 +25,9 @@
 
 </body>
 <ul id="menu">
-    <li><a href="#">Sign In</a></li>
-    <li><a href="#">Sign Up</a></li>
+    <li><a href="Authentification.html">Sign In</a></li>
+    <li><a href="Registration.html">Sign Up</a></li>
     <li><a href="#">About</a></li>
 </ul>
-<img src="back.png" alt="Back" style="padding-left: 205px; width: 60%; padding-top: 2px;">
+<img src="back.png" alt="Back" style="margin-left: 250px; width: 60%; padding-top: 2px; box-shadow: 0 0 5px">
 </html>
