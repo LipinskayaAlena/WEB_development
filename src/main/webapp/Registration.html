@@ -2,12 +2,20 @@
 <head>
     <title>Registration</title>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
-    <link href="style.css" rel="stylesheet"/>
-    <link rel="shortcut icon" href="sign.png" type="image/x-icon"/>
-    <link rel="icon" href="sign.png" type="image/x-icon" />
+    <link href="css/style.css" rel="stylesheet"/>
+    <link rel="icon" href="images/sign.png" type="image/x-icon" />
 </head>
-<body background="calendar.jpg" style="background-size: 100%">
-
+<body background="images/calendar.jpg" style="background-size: 100%">
+<table>
+    <tr>
+        <td>
+            <img src="images/signMenu.png" alt="Sign" width="100" height="50">
+        </td>
+        <td>
+            <h1 class="styleText">MyCalendar</h1>
+        </td>
+    </tr>
+</table>
 <form name="test" method="post" target="_blank" style="position:fixed; top:10%; left:22%">
     <fieldset>
         <legend class="styleText">Registration</legend>
@@ -22,11 +30,11 @@
             </tr>
             <tr>
                 <td>Sex</td>
-                <td><input type="radio" name="sex" value="female" style="text-align: left" checked />Женский<br/></td>
+                <td><input type="radio" name="sex" value="female" style="text-align: left" checked />Female<br/></td>
             </tr>
             <tr style="text-align: left">
                 <td></td>
-                <td > <input type="radio" name="sex" value="male" />Мужской<br /> </td>
+                <td > <input type="radio" name="sex" value="male" />Male<br /> </td>
             </tr>
             <tr>
                 <td>Country</td>
@@ -63,11 +71,11 @@
             </tr>
             <tr>
                 <td></td>
-                <a href="Authentification.html"><td><input type="submit" name="registr" value="Register" class="button" style="width: 200px" /><br/></td></a>
+                <td><input type="button" name="registr" value="Register" class="button" onclick="location.href='Authentification.html'" style="width: 200px" /><br/></td>
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" name="clear" value="Clear" class="button" style="width: 200px" /><br /></td>
+                <td><input type="button" name="clear" value="Clear" class="button" onclick="location.href='Registration.html'" style="width: 200px" /><br /></td>
             </tr>
         </table>
 
