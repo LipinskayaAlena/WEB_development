@@ -24,9 +24,10 @@
 </table>
 
 </body>
+
 <ul id="menu">
-    <li><a href="Authentification.html">Sign In</a></li>
-    <li><a href="Registration.html">Sign Up</a></li>
+    <li><a href="Authentification">Sign In</a></li>
+    <li><a href="Registration">Sign Up</a></li>
     <li><a href="#">About</a></li>
 </ul>
 
