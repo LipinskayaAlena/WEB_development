@@ -16,14 +16,14 @@ public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "login", nullable = false)
-    private String login;
+    @Column(name = "username", nullable = false)
+    private String username;
 
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "e_mail", nullable = false)
-    private String e_mail;
+    @Column(name = "email", nullable = false)
+    private String email;
 
     @Column(name = "password", nullable = false)
     private String password;
@@ -37,19 +37,19 @@ public class Person implements Serializable {
     }
 
     public String getUsername() {
-        return login;
+        return username;
     }
 
-    public void setUsername(String userName) {
-        this.login = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
-        return e_mail;
+        return email;
     }
 
     public void setEmail(String email) {
-        this.e_mail = email;
+        this.email = email;
     }
 
     public String getPassword() {

@@ -49,7 +49,7 @@ public class PersonController {
             registered = createUserAccount(newPerson);
         }
         if (registered == null) {
-            result.rejectValue("login", "message.regError", "Wrong username or password");
+            result.rejectValue("username", "message.regError", "Wrong username or password");
         }
         if (result.hasErrors()) {
             return new ModelAndView("../../WEB-INF/pages/Registration", "error", "Error");
@@ -66,7 +66,7 @@ public class PersonController {
                     SecurityContextHolder.getContext());
             request.getSession().setAttribute("user", registered);
 
-            ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/Authentification");
+            ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/december");
 
            // List<Place> allPlaces = placeService.getAllPlaces();
            // List<String> photos = new ArrayList<String>();

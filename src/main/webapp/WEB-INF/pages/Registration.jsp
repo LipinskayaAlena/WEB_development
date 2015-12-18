@@ -8,14 +8,14 @@
 
 
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
-    <link href="../../css/style.css" rel="stylesheet"/>
-    <link rel="icon" href="../../images/sign.png" type="image/x-icon" />
+    <link href="../../resources/css/style.css" rel="stylesheet"/>
+    <link rel="icon" href="../../resources/images/sign.png" type="image/x-icon" />
 </head>
-<body background="../../images/calendar.jpg" style="background-size: 100%">
+<body background="../../resources/images/calendar.jpg" style="background-size: 100%">
 <table>
     <tr>
         <td>
-            <img src="../../images/signMenu.png" alt="Sign" width="100" height="50">
+            <img src="../../resources/images/signMenu.png" alt="Sign" width="100" height="50">
         </td>
         <td>
             <h1 class="styleText">MyCalendar</h1>
@@ -24,7 +24,7 @@
 </table>
 
 
-<form action="/Registration" method="POST" commandName = "user" style="position:fixed; top:10%; left:22%">
+<form action="<c:url value="/Registration"/>" method="POST" id="regForm" style="position:fixed; top:10%; left:22%">
     <fieldset>
         <legend class="styleText">Registration</legend>
         <table class="styleText" style="width: 200px">
@@ -34,11 +34,11 @@
             </tr>
             <tr>
                 <td>Email</td>
-                <td><input name="e_mail" type="email" style="width: 200px" /><br /></td>
+                <td><input name="email" type="email" style="width: 200px" /><br /></td>
             </tr>
             <tr>
                 <td>Login</td>
-                <td><input name="login" type="text" style="width: 200px" /><br /></td>
+                <td><input name="username" type="text" style="width: 200px" /><br /></td>
             </tr>
 
             <tr class="control-group">

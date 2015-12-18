@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 public class LoginController {
     @RequestMapping(value = "/Authentification", method = RequestMethod.GET)
     public ModelAndView getLogin(HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/Authentification");
+        ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/december");
         if (request.getParameter("error") != null) {
             modelAndView.addObject("error", "Wrong credentials");
         }

@@ -28,7 +28,7 @@ public class PersonServiceImpl implements PersonService {
         }
         Person person = new Person();
 
-        person.setUsername(newPerson.getUsername());
+        person.setName(newPerson.getName());
         person.setEmail(newPerson.getEmail());
         person.setPassword(customPasswordEncoder.encodePassword(newPerson.getPassword(), newPerson.getUsername()));
         person.setUsername(newPerson.getUsername());
