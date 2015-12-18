@@ -28,6 +28,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         session.setAttribute("user", person);
 
         httpServletResponse.setStatus(HttpServletResponse.SC_OK);
-        httpServletResponse.sendRedirect("/december");
+        httpServletResponse.sendRedirect("/month");
     }
 }

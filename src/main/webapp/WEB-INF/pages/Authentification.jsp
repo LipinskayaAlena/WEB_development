@@ -11,14 +11,13 @@
     <table>
         <tr>
             <td>
-                <img src="../../resources/images/signMenu.png" alt="Sign" width="100" height="50">
+                <img src="../../resources/images/signMenu.png" alt="Sign" width="50" height="45">
             </td>
             <td>
                 <h1 class="styleText">MyCalendar</h1>
             </td>
         </tr>
     </table>
-
     <form id="login-form" action="<c:url value="/j_spring_security_check"/>" method="POST" style="position: fixed; top: 35%; left: 42%; width: 200px">
         Login:<br /> <input type="text" name="username" style="width: 200px"/><br />
         Password:<br /> <input type="password" name="password" maxlength="8" style="width: 200px"/><br />

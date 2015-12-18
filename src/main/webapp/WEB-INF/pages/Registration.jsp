@@ -15,7 +15,7 @@
 <table>
     <tr>
         <td>
-            <img src="../../resources/images/signMenu.png" alt="Sign" width="100" height="50">
+            <img src="../../resources/images/signMenu.png" alt="Sign" width="100" height="89">
         </td>
         <td>
             <h1 class="styleText">MyCalendar</h1>

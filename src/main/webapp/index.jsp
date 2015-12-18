@@ -12,20 +12,13 @@
 </head>
 
 <body background="resources/images/calendarForStart.jpg" style="background-size: 110%">
-<table>
-    <tr>
-        <td>
-            <img src="resources/images/signMenu.png" alt="Sign" width="100" height="50">
-        </td>
-        <td>
-            <h1 class="styleText">MyCalendar</h1>
-        </td>
-    </tr>
-</table>
+
 
 </body>
 
 <ul id="menu">
+    <li style="margin-left: 10px;"><img src="../../resources/images/signMenu.png" style="width: 35px; height: 31px"></li>
+    <li class="styleText">MyCalendar</li>
     <li><a href="Authentification">Sign In</a></li>
     <li><a href="Registration">Sign Up</a></li>
     <li><a href="#">About</a></li>

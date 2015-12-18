@@ -5,6 +5,9 @@
     <title>MyCalendar</title>
     <link rel="shortcut icon" href="../../resources/images/sign.png" type="image/x-icon"/>
     <link rel="icon" href="../../resources/images/sign.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../../resources/css/styleCalend.css">
+    <link rel="stylesheet" href="../../resources/css/style.css">
+    <link href="resources/css/menuStyle.css" rel="stylesheet"/>
 </head>
 <body>
 <table>
