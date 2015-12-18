@@ -14,9 +14,9 @@
 
     <http auto-config='true' use-expressions="true">
         <form-login
-                login-page="/login"
-                default-target-url="/"
-                authentication-failure-url="/login?error"
+                login-page="/Authentification"
+                default-target-url="/december"
+                authentication-failure-url="/Authentification?error"
                 username-parameter="username"
                 password-parameter="password"
                 authentication-success-handler-ref="authenticationSuccessHandler" />

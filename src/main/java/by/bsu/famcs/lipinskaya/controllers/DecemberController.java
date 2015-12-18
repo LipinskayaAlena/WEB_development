@@ -7,14 +7,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Created by User on 18.12.2015.
+ */
 @Controller
-public class LoginController {
-    @RequestMapping(value = "/Authentification", method = RequestMethod.GET)
+public class DecemberController {
+
+    @RequestMapping(value = "/december", method = RequestMethod.GET)
     public ModelAndView getLogin(HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/Authentification");
-        if (request.getParameter("error") != null) {
-            modelAndView.addObject("error", "Wrong credentials");
-        }
+        ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/december");
         return modelAndView;
     }
 }

@@ -19,8 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 @Controller
@@ -78,6 +77,10 @@ public class PersonController {
            //     likedPhotos.add(placeService.isLiked(registered, place.getId()));
            // }
 
+
+
+
+            modelAndView.addObject("user", newPerson);
            // modelAndView.addObject("places", allPlaces);
            // modelAndView.addObject("photos", photos);
            // modelAndView.addObject("likes", likedPhotos);

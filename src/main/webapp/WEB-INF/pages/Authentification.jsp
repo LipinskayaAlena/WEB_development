@@ -18,11 +18,11 @@
             </td>
         </tr>
     </table>
-    <c:url var="loginUrl" value="/j_spring_security_check"/>
-    <form id="login-form" action="${loginUrl}" method="POST" style="position: fixed; top: 35%; left: 42%; width: 200px">
+
+    <form id="login-form" action="<c:url value="/j_spring_security_check"/>" method="POST" style="position: fixed; top: 35%; left: 42%; width: 200px">
         Login:<br /> <input type="text" name="username" style="width: 200px"/><br />
         Password:<br /> <input type="password" name="password" maxlength="8" style="width: 200px"/><br />
-       <input type="submit" name="signIn" value="Enter" class="button" align="center" style="width: 200px">
+       <button type="submit" class="button" align="center" style="width: 200px"> Enter </button>
 
             <c:if test="${not empty error}">
                 <div class="alert alert-danger" role="alert">
