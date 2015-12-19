@@ -14,6 +14,7 @@
                                  http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <mvc:resources mapping="/resources/**" location="resources/" />
+    <mvc:resources mapping="/webjars/**" location="/webjars/"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/" />

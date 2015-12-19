@@ -3,6 +3,7 @@ package by.bsu.famcs.lipinskaya.controllers;
 import by.bsu.famcs.lipinskaya.model.Note;
 import by.bsu.famcs.lipinskaya.model.Person;
 import by.bsu.famcs.lipinskaya.services.NoteService;
+import by.bsu.famcs.lipinskaya.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -53,6 +54,15 @@ public class NotesController {
 
         ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/Notes");
         modelAndView.addObject("notes", notesThisDay);
+        return modelAndView;
+    }
+
+
+
+    @RequestMapping(value = "/note/{note_id}/edit", method = RequestMethod.GET)
+    public ModelAndView editNote(@PathVariable String note_id) {
+        ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/editNote");
+        modelAndView.addObject("note", noteService.getNoteById(Long.parseLong(note_id)));
         return modelAndView;
     }
 

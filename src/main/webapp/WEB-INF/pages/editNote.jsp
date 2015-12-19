@@ -1,10 +1,9 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>MyNotes</title>
+    <title>Edit</title>
   <link rel="stylesheet" href="../../resources/css/styleCalend.css">
   <link rel="stylesheet" href="../../resources/css/style.css">
   <link href="../../resources/css/menuStyle.css" rel="stylesheet"/>
@@ -20,16 +19,13 @@
   <script src="webjars/jquery-validation/1.14.0/additional-methods.min.js"></script>
   <script src="webjars/jquery-validation/1.14.0/additional-methods.js"></script>
   <script src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="../../resources/js/popup.js"></script>
-
-
 </head>
 <body style="background: #dad8c0">
 <table>
   <tr>
     <ul id="menu">
       <li style="margin-left: 10px;"><img src="../../resources/images/signMenu.png" style="width: 35px; height: 31px"></li>
-        <li class="styleText">${user.username}</li>
+      <li class="styleText">${user.username}</li>
       <li><a href="<c:url value="/month"/>">Home</a></li>
       <li><a href="<c:url value="/all_notes"/>">All events</a></li>
       <li><a href="<c:url value="/j_spring_security_logout"/>">Exit</a></li>
@@ -37,16 +33,36 @@
   </tr>
 </table>
 
-<c:forEach var="note" items="${all_notes}">
-<div class="button teach-me" id="note_editor" style="height: 60px; margin-top: 20px">
+<div class="b-popup" id="popup1">
+  <div class="b-popup-content">
+    <a style="margin-left: 220px" href="<c:url value="/all_notes"/>">X</a>
+    <form id="editNoteForm" class="form-horizontal"
+          data-fv-framework="bootstrap"
+          data-fv-icon-valid="glyphicon glyphicon-ok"
+          data-fv-icon-invalid="glyphicon glyphicon-remove"
+          data-fv-icon-validating="glyphicon glyphicon-refresh">
+      <div class="form-group">
+        <div class="col-xs-4">
+          <label for="note_txt">Note</label>
+          <textarea id="note_txt" rows="5" name="description" placeholder="Максимум 512 символов"></textarea>
+        </div>
+      </div>
 
-      <span id="note_id" class="item">${note.note_id}</span>
-      <span id="note_text" class="item"><c:out value="${note.note_text}"/></span>
-      <span id="note_date" class="meta cost"><c:out value="${note.note_date}"/></span>
-    <i class="chevron"></i>
+      <div class="form-group" style="margin-top: 10px">
+        <label for="date" class="col-xs-3 control-label">Date</label>
+        <div class="col-xs-4">
+          <input type="text" class="form-control" id="date" style="width: 160px" name="description_date" placeholder="YYYY/MM/DD"
+                 data-fv-date="true"
+                 data-fv-date-format="YYYY/MM/DD"
+                 data-fv-date-message="The value is not a valid date" />
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+
+  </div>
 </div>
-    <a class = "button" href="/note/${note.note_id}/edit">Edit note</a>
-</c:forEach>
 
 </body>
 </html>
