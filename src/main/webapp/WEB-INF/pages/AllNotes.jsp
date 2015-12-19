@@ -39,13 +39,11 @@
 
 <c:forEach var="note" items="${all_notes}">
 <div class="button teach-me" id="note_editor" style="height: 60px; margin-top: 20px">
-
-      <span id="note_id" class="item">${note.note_id}</span>
       <span id="note_text" class="item"><c:out value="${note.note_text}"/></span>
       <span id="note_date" class="meta cost"><c:out value="${note.note_date}"/></span>
     <i class="chevron"></i>
 </div>
-    <a class = "button" href="/note/${note.note_id}/edit">Edit note</a>
+    <a class = "button" href="/note/${note.note_id}/show">Edit note</a>
 </c:forEach>
 
 </body>

@@ -8,4 +8,6 @@ public interface NoteDAO {
     Note getNoteById(long note_id);
 
     List getNotesByUsername(String username);
+
+    void update(Note spot);
 }

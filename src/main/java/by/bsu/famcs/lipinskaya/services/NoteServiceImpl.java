@@ -19,6 +19,10 @@ public class NoteServiceImpl implements NoteService {
         return noteDAO.getNoteById(note_id);
     }
 
+    public void update(Note noteToUpdate) {
+        noteDAO.update(noteToUpdate);
+    }
+
     public List<Note> getNotesByUsername(String username) {
         return noteDAO.getNotesByUsername(username);
     }

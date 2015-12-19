@@ -8,5 +8,7 @@ public interface NoteService {
 
     Note getNoteById(long note_id);
 
+    void update(Note noteToUpdate);
+
     List<Note> getNotesByUsername(String username);
 }

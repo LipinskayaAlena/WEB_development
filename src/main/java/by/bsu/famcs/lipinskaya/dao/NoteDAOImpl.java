@@ -34,4 +34,10 @@ public class NoteDAOImpl implements NoteDAO {
         }
         return result;
     }
+
+
+    public void update(Note spot) {
+        sessionFactory.getCurrentSession().update(spot);
+        sessionFactory.getCurrentSession().flush();
+    }
 }

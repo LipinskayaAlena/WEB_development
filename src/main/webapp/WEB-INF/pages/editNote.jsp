@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Edit</title>
+  <title>Edit</title>
   <link rel="stylesheet" href="../../resources/css/styleCalend.css">
   <link rel="stylesheet" href="../../resources/css/style.css">
   <link href="../../resources/css/menuStyle.css" rel="stylesheet"/>
@@ -40,25 +40,25 @@
           data-fv-framework="bootstrap"
           data-fv-icon-valid="glyphicon glyphicon-ok"
           data-fv-icon-invalid="glyphicon glyphicon-remove"
-          data-fv-icon-validating="glyphicon glyphicon-refresh">
+          data-fv-icon-validating="glyphicon glyphicon-refresh" method="post" action="<c:url value="/note/${note.note_id}/edit"/>">
+      <input type="text" name="note_id" value="${note.note_id}" hidden>
       <div class="form-group">
         <div class="col-xs-4">
           <label for="note_txt">Note</label>
-          <textarea id="note_txt" rows="5" name="description" placeholder="Максимум 512 символов"></textarea>
+          <textarea id="note_txt" style="width: 160px; resize: none"  rows="5" name="note_text" placeholder="Максимум 512 символов">${note.note_text}</textarea>
         </div>
       </div>
 
       <div class="form-group" style="margin-top: 10px">
-        <label for="date" class="col-xs-3 control-label">Date</label>
         <div class="col-xs-4">
-          <input type="text" class="form-control" id="date" style="width: 160px" name="description_date" placeholder="YYYY/MM/DD"
+          <label for="date" class="col-xs-3 control-label">Date</label>
+          <input type="text" class="form-control" id="date" value="${note.note_date}" style="width: 159px" name="note_date" placeholder="YYYY/MM/DD"
                  data-fv-date="true"
-                 data-fv-date-format="YYYY/MM/DD"
+                 data-fv-date-format="YYYY-MM-DD"
                  data-fv-date-message="The value is not a valid date" />
         </div>
       </div>
-
-      <button type="submit" class="btn btn-primary">Add</button>
+      <button type="submit" style="margin-left: 70px; margin-top: 10px" class="button">Update</button>
     </form>
 
   </div>
