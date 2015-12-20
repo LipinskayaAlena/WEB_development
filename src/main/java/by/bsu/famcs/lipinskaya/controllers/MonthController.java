@@ -22,6 +22,7 @@ public class MonthController {
         if(date.getMonth() + 1 == 12) {
             modelAndView = new ModelAndView("../../WEB-INF/pages/december");
         }
+
         return modelAndView;
     }
 }

@@ -38,14 +38,6 @@ public class NotesController {
         return modelAndView;
     }
 
-    /*@RequestMapping(value = "/{username}/notes", method = RequestMethod.GET)
-    public ModelAndView getAllNotes(@PathVariable String username) {
-        List<Note> notes = noteService.getNotesByUsername(username);
-        ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/AllNotes");
-        modelAndView.addObject("all_notes", notes);
-        return modelAndView;
-    }*/
-
     @RequestMapping(value = "/{username}/notes/{date}", method = RequestMethod.GET)
     public ModelAndView getNotesByDate(@PathVariable String username, @PathVariable String date) {
         List<Note> notes = noteService.getNotesByUsername(username);
@@ -58,6 +50,7 @@ public class NotesController {
 
         ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/Notes");
         modelAndView.addObject("notes", notesThisDay);
+        modelAndView.addObject("date", date);
         return modelAndView;
     }
 
@@ -75,6 +68,13 @@ public class NotesController {
 
     @RequestMapping(value = "/note/{note_id}/show", method = RequestMethod.GET)
     public ModelAndView showNote(@PathVariable String note_id) {
+        ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/editNote");
+        modelAndView.addObject("note", noteService.getNoteById(Long.parseLong(note_id)));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/note/{note_id}/show", method = RequestMethod.GET)
+    public ModelAndView deleteNote(@PathVariable String note_id) {
         ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/editNote");
         modelAndView.addObject("note", noteService.getNoteById(Long.parseLong(note_id)));
         return modelAndView;

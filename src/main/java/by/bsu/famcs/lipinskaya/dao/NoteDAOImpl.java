@@ -7,6 +7,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -35,9 +36,30 @@ public class NoteDAOImpl implements NoteDAO {
         return result;
     }
 
-
     public void update(Note spot) {
         sessionFactory.getCurrentSession().update(spot);
         sessionFactory.getCurrentSession().flush();
+    }
+
+
+    public Note createNewNote(Note newNote) {
+        sessionFactory.getCurrentSession().save(newNote);
+        return newNote;
+    }
+
+    public void deleteNoteById(long noteId) {
+        deleteById(Note.class, noteId);
+        sessionFactory.getCurrentSession().flush();
+    }
+
+
+    private boolean deleteById(Class<?> type, Serializable id) {
+        Object persistentInstance = sessionFactory.getCurrentSession().load(type, id);
+        if (persistentInstance != null) {
+            sessionFactory.getCurrentSession().delete(persistentInstance);
+            sessionFactory.getCurrentSession().flush();
+            return true;
+        }
+        return false;
     }
 }

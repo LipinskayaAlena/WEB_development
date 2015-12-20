@@ -23,6 +23,15 @@ public class NoteServiceImpl implements NoteService {
         noteDAO.update(noteToUpdate);
     }
 
+
+    public Note createNewNote(Note newNote){
+         return noteDAO.createNewNote(newNote);
+    }
+
+    public void deleteNoteById(long noteId) {
+        noteDAO.deleteNoteById(noteId);
+    }
+
     public List<Note> getNotesByUsername(String username) {
         return noteDAO.getNotesByUsername(username);
     }
