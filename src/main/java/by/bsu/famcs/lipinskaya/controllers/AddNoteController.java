@@ -28,11 +28,10 @@ public class AddNoteController {
     private PersonService personService;
 
 
-    @RequestMapping(value = "/add_note/{date}/{size}", method = RequestMethod.GET)
-    public ModelAndView addNoteView(@PathVariable String date, @PathVariable int size){
+    @RequestMapping(value = "/add_note/{date}", method = RequestMethod.GET)
+    public ModelAndView addNoteView(@PathVariable String date){
         ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/addNote");
         modelAndView.addObject("date", date);
-        modelAndView.addObject("size", size);
         return modelAndView;
     }
 

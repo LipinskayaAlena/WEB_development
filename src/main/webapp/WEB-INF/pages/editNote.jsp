@@ -52,7 +52,7 @@
       <div class="form-group" style="margin-top: 10px">
         <div class="col-xs-4">
           <label for="date" class="col-xs-3 control-label">Date</label>
-          <input type="text" class="form-control" id="date" value="${note.note_date}" style="width: 159px" name="note_date" placeholder="YYYY/MM/DD"
+          <input type="text" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" class="form-control" id="date" value="${note.note_date}" style="width: 159px" name="note_date" placeholder="YYYY/MM/DD"
                  data-fv-date="true"
                  data-fv-date-format="YYYY-MM-DD"
                  data-fv-date-message="The value is not a valid date" />

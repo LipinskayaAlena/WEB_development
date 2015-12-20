@@ -24,7 +24,7 @@
         Password:<br /> <input type="password" name="password" maxlength="8" style="width: 200px"/><br />
        <button type="submit" class="button" align="center" style="width: 200px"> Enter </button>
 
-        <div style="margin-top: 25px" class="control-group controls">
+        <div style="margin-top: 35px" class="control-group controls">
             <c:if test="${not empty error}">
                 <div class="alert alert-danger" role="alert">
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>

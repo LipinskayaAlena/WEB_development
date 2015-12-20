@@ -19,6 +19,7 @@
   <script src="webjars/jquery-validation/1.14.0/additional-methods.min.js"></script>
   <script src="webjars/jquery-validation/1.14.0/additional-methods.js"></script>
   <script src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 </head>
 <body style="background: #dad8c0">
 <table>
@@ -36,7 +37,7 @@
 <div class="b-popup" id="popup1">
   <div class="b-popup-content">
     <a style="margin-left: 220px" href="<c:url value="/${user.username}/notes/${date}"/>">X</a>
-    <form id="editNoteForm" class="form-horizontal"
+    <form id="editNoteForm" class="form-horizontal" name="form1"
           data-fv-framework="bootstrap"
           data-fv-icon-valid="glyphicon glyphicon-ok"
           data-fv-icon-invalid="glyphicon glyphicon-remove"
@@ -55,6 +56,7 @@
           <input readonly type="text" class="form-control" id="date" value="${date}" style="width: 159px" name="note_date" placeholder="YYYY/MM/DD"/>
         </div>
       </div>
+
       <button type="submit" style="margin-left: 90px; margin-top: 10px" class="button">Add</button>
     </form>
 

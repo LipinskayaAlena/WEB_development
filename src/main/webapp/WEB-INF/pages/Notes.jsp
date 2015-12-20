@@ -36,7 +36,8 @@
 </table>
 
   <table>
-      <a class = "button" href="/add_note/${date}/${notes.size()}" style="height: 60px; margin-top: 20px">Add note</a>
+      <div><h1>${date}</h1></div>
+      <a class = "button" href="/add_note/${date}" style="height: 60px; margin-top: 20px">Add note</a>
       <c:forEach var="note" items="${notes}">
           <div class="button teach-me" id="note_editor" style="height: 60px; margin-top: 20px">
               <span id="note_text" class="item"><c:out value="${note.note_text}"/></span>

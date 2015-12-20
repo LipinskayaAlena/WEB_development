@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +54,6 @@ public class NotesController {
         modelAndView.addObject("date", date);
         return modelAndView;
     }
-
 
     @RequestMapping(value = "/note/{note_id}/edit", method = RequestMethod.POST)
     public String editNote(@ModelAttribute("note") Note note, HttpServletRequest request) {
