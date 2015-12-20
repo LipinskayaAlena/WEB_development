@@ -73,11 +73,9 @@ public class NotesController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/note/{note_id}/show", method = RequestMethod.GET)
-    public ModelAndView deleteNote(@PathVariable String note_id) {
-        ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/editNote");
-        modelAndView.addObject("note", noteService.getNoteById(Long.parseLong(note_id)));
-        return modelAndView;
+    @RequestMapping(value = "/note/{username}/{note_id}/{date}/delete", method = RequestMethod.GET)
+    public String deleteNote(@PathVariable String note_id,@PathVariable String username, @PathVariable String date) {
+        noteService.deleteNoteById(Long.parseLong(note_id));
+        return "redirect:/" + username + "/notes" + "/" + date;
     }
-
 }

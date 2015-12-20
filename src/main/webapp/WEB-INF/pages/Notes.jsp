@@ -44,7 +44,8 @@
               <i class="chevron"></i>
           </div>
           <a class = "button" href="/note/${note.note_id}/show">Edit note</a>
-          <a class = "button" href="/note/${note.note_id}/delete">Delete note</a>
+          <a class="button" onclick="return confirm('OK to delete ${note.note_text} ?');"
+             href="/note/${user.username}/${note.note_id}/${date}/delete"> <i class="fa fa-times"></i>Delete note</a>
       </c:forEach>
   </table>
 </body>
