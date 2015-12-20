@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +27,65 @@ public class MonthController {
 
     @Autowired
     NoteService noteService;
+
+    @RequestMapping(value = "/month/next", method = RequestMethod.GET)
+    public ModelAndView nextMonth(HttpServletRequest request) {
+        Person user = (Person)request.getSession().getAttribute("user");
+        List<Note> notes = noteService.getNotesByUsername(user.getUsername());
+        List<String> dateNotes = new ArrayList<String>();
+        List<Note> noteToday = new ArrayList<Note>();
+
+        currentMonth++;
+        if(currentMonth > 12){
+            currentMonth = 1;
+            currentYear++;
+        }
+
+        Date curDate = new Date();
+        String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(curDate);
+        for(Note note: notes) {
+            if(note.getNote_date().equals(currentDate))
+                noteToday.add(note);
+            dateNotes.add(note.getNote_date().toString());
+        }
+
+
+        //date = new Date();
+
+        //currentMonth = date.getMonth() + 1;
+        //currentYear = date.getYear() + 1900;
+
+
+        //double numberDay = numberDayInMonth(currentMonth, currentYear);
+        //int dayOfWeekFirstDayMonth = dayOfWeek(1, currentMonth, currentYear) - 1;
+        String nameCurrentMonth = getNameMonth(currentMonth - 1);
+
+
+        ModelAndView modelAndView = null;
+        switch (currentMonth) {
+            case 11:
+                modelAndView = new ModelAndView("months/november");
+                break;
+            case 12:
+                modelAndView = new ModelAndView("months/december");
+                break;
+            case 1:
+                modelAndView = new ModelAndView("months/january");
+                break;
+            case 2:
+                modelAndView = new ModelAndView("months/february");
+                break;
+        }
+
+        modelAndView.addObject("current_day", currentDate);
+        // modelAndView.addObject("last_month", listDaysLastMonth);
+        // modelAndView.addObject("days", listDays);
+        modelAndView.addObject("name_month_year", nameCurrentMonth + " " + currentYear);
+        modelAndView.addObject("date_notes", dateNotes);
+        modelAndView.addObject("note_today", noteToday);
+
+        return modelAndView;
+    }
 
 
     @RequestMapping(value = "/month", method = RequestMethod.GET)
@@ -56,45 +114,43 @@ public class MonthController {
         int dayOfWeekFirstDayMonth = dayOfWeek(1, currentMonth, currentYear) - 1;
         String nameCurrentMonth = getNameMonth(date.getMonth());
 
-        int numberLastMonth = currentMonth - 1;
-        int yearLastMonth = currentYear;
-        if(numberLastMonth == 0) {
-            numberLastMonth = 12;
-            yearLastMonth--;
-        }
+      //  int numberLastMonth = currentMonth - 1;
+      //  int yearLastMonth = currentYear;
+      //  if(numberLastMonth == 0) {
+       //     numberLastMonth = 12;
+       //     yearLastMonth--;
+       // }
 
-        double numberDayLastMonth = (int) numberDayInMonth(numberLastMonth, yearLastMonth);
+       // double numberDayLastMonth = (int) numberDayInMonth(numberLastMonth, yearLastMonth);
 
 
-        List<Integer> listDays = new ArrayList<Integer>();
-        List<Integer> listDaysLastMonth = new ArrayList<Integer>();
-        for(int j = (int)(numberDayLastMonth - dayOfWeekFirstDayMonth) + 1; j <= numberDayLastMonth; j++)
-            listDaysLastMonth.add(j);
+        //List<Integer> listDays = new ArrayList<Integer>();
+       // List<Integer> listDaysLastMonth = new ArrayList<Integer>();
+        //for(int j = (int)(numberDayLastMonth - dayOfWeekFirstDayMonth) + 1; j <= numberDayLastMonth; j++)
+         //   listDaysLastMonth.add(j);
 
-        for(int i = 1; i <= numberDay; i++)
-            listDays.add(i);
+       // for(int i = 1; i <= numberDay; i++)
+         //   listDays.add(i);
 
         ModelAndView modelAndView = null;
-        switch (curDate.getMonth()) {
-            case 10:
-                modelAndView = new ModelAndView("../../WEB-INF/pages/november");
-                break;
+        switch (currentMonth) {
             case 11:
-                modelAndView = new ModelAndView("../../WEB-INF/pages/december");
+                modelAndView = new ModelAndView("months/november");
                 break;
-            case 0:
-                modelAndView = new ModelAndView("../../WEB-INF/pages/january");
+            case 12:
+                modelAndView = new ModelAndView("months/december");
                 break;
             case 1:
-                modelAndView = new ModelAndView("../../WEB-INF/pages/febrary");
+                modelAndView = new ModelAndView("months/january");
+                break;
+            case 2:
+                modelAndView = new ModelAndView("months/february");
                 break;
         }
 
-
-
         modelAndView.addObject("current_day", currentDate);
-        modelAndView.addObject("last_month", listDaysLastMonth);
-        modelAndView.addObject("days", listDays);
+       // modelAndView.addObject("last_month", listDaysLastMonth);
+       // modelAndView.addObject("days", listDays);
         modelAndView.addObject("name_month_year", nameCurrentMonth + " " + currentYear);
         modelAndView.addObject("date_notes", dateNotes);
         modelAndView.addObject("note_today", noteToday);
@@ -103,44 +159,60 @@ public class MonthController {
     }
 
     @RequestMapping(value = "/month/last", method = RequestMethod.GET)
-    public ModelAndView getLasttMonth(HttpServletRequest request) {
-        //int currentYear = date.getYear();
-        //int numberLastMonth = date.getMonth() - 1;
+    public ModelAndView lastMonth(HttpServletRequest request) {
+        Person user = (Person)request.getSession().getAttribute("user");
+        List<Note> notes = noteService.getNotesByUsername(user.getUsername());
+        List<String> dateNotes = new ArrayList<String>();
+        List<Note> noteToday = new ArrayList<Note>();
+
         currentMonth--;
-
         if(currentMonth == 0){
-            currentYear--;
             currentMonth = 12;
+            currentYear--;
         }
 
-        double numberDay = numberDayInMonth(currentMonth, currentYear);
-        int numberDayOfWeek = dayOfWeek(1, currentMonth, currentYear);
-        String nameCurrentMonth = getNameMonth(currentMonth);
-
-        int numberLastMonth = currentMonth--;
-        int yearLastMonth = currentYear;
-        if(numberLastMonth == 0) {
-            numberLastMonth = 12;
-            yearLastMonth--;
+        Date curDate = new Date();
+        String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(curDate);
+        for(Note note: notes) {
+            if(note.getNote_date().equals(currentDate))
+                noteToday.add(note);
+            dateNotes.add(note.getNote_date().toString());
         }
-        double numberDayLastMonth = numberDayInMonth(numberLastMonth, yearLastMonth);
 
 
-        List<Integer> listDays = new ArrayList<Integer>();
-        List<Integer> listDaysLastMonth = new ArrayList<Integer>();
-        for(int j = (int)numberDayLastMonth - numberDayOfWeek; j < numberDayLastMonth; j++)
-            listDaysLastMonth.add(j);
+        //date = new Date();
 
-        for(int i = 0; i < numberDay; i++)
-            listDays.add(i);
+        //currentMonth = date.getMonth() + 1;
+        //currentYear = date.getYear() + 1900;
 
-        ModelAndView modelAndView;
 
-        modelAndView = new ModelAndView("../../WEB-INF/pages/december");
-        modelAndView.addObject("current_day", "null");
-        modelAndView.addObject("last_month", listDaysLastMonth);
-        modelAndView.addObject("current_month", listDays);
+        //double numberDay = numberDayInMonth(currentMonth, currentYear);
+        //int dayOfWeekFirstDayMonth = dayOfWeek(1, currentMonth, currentYear) - 1;
+        String nameCurrentMonth = getNameMonth(currentMonth - 1);
+
+
+        ModelAndView modelAndView = null;
+        switch (currentMonth) {
+            case 11:
+                modelAndView = new ModelAndView("months/november");
+                break;
+            case 12:
+                modelAndView = new ModelAndView("months/december");
+                break;
+            case 1:
+                modelAndView = new ModelAndView("months/january");
+                break;
+            case 2:
+                modelAndView = new ModelAndView("months/february");
+                break;
+        }
+
+        modelAndView.addObject("current_day", currentDate);
+        // modelAndView.addObject("last_month", listDaysLastMonth);
+        // modelAndView.addObject("days", listDays);
         modelAndView.addObject("name_month_year", nameCurrentMonth + " " + currentYear);
+        modelAndView.addObject("date_notes", dateNotes);
+        modelAndView.addObject("note_today", noteToday);
 
         return modelAndView;
     }

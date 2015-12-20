@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.*;
 
 
 @Controller
@@ -65,7 +64,7 @@ public class PersonController {
                     SecurityContextHolder.getContext());
             request.getSession().setAttribute("user", registered);
 
-            ModelAndView modelAndView = new ModelAndView("../../WEB-INF/pages/december");
+            ModelAndView modelAndView = new ModelAndView("months/december");
 
            // List<Place> allPlaces = placeService.getAllPlaces();
            // List<String> photos = new ArrayList<String>();
